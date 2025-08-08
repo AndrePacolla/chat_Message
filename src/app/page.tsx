@@ -1,9 +1,23 @@
+"use client"
+
+import { Chat } from "@/components/Chat";
+import { ChatProvider } from "./contexts/ChatContext";
+import { UserProvider } from "./contexts/UserContext";
+
 const App = () => {
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto max-w-lg px-2 ">
+      <UserProvider>
+        <ChatProvider>
+           <h1 className="text-3xl my-8 text-center">Chat Bate - Papo</h1>
 
-      ola mundo ...
+
+           <Chat/>
+        </ChatProvider>
+      </UserProvider>
+
+
  
     </div>
   );

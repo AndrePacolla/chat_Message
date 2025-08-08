@@ -1,5 +1,6 @@
+import { chatReducer } from "../reducers/chatReducer";
 import { Message } from "../types/Message";
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 
 type ChatContext = {
     chat: Message[];
@@ -12,14 +13,23 @@ export const ChatContext = createContext< ChatContext | null>(null);
 
 export const ChatProvider = ({children}: {children: ReactNode}) => {
 
-    const []
+    const [chat, dispatch] = useReducer(chatReducer, []); // chama reducer , dps dados iniciais
 
+    const addMessage = (user: string, text: string) => {
+
+        dispatch({
+            type: "add",
+            payload:{ user , text }
+        });
+    }
 
     return(
-        <ChatContext.Provider value={{}}>
+        <ChatContext.Provider value={{chat, addMessage}}>
             {children}
         </ChatContext.Provider>
-
-
     )
-}
+    };
+
+
+
+

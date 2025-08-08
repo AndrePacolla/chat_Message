@@ -21,7 +21,7 @@ export const UserProvider = ({children}: {children:ReactNode}) => {
 
 };
 
- export  const useUser = () => useContext(UserContext);
+ export  const useUser = () => useContext(UserContext); // Hooks (ferramenta)
 
 
 
