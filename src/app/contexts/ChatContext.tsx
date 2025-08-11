@@ -1,6 +1,6 @@
 import { chatReducer } from "../reducers/chatReducer";
 import { Message } from "../types/Message";
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useContext, useReducer } from "react";
 
 type ChatContext = {
     chat: Message[];
@@ -13,7 +13,7 @@ export const ChatContext = createContext< ChatContext | null>(null);
 
 export const ChatProvider = ({children}: {children: ReactNode}) => {
 
-    const [chat, dispatch] = useReducer(chatReducer, []); // chama reducer , dps dados iniciais
+    const [chat, dispatch] = useReducer(chatReducer, []); // chama reducer , dps dados iniciais.
 
     const addMessage = (user: string, text: string) => {
 
@@ -31,5 +31,5 @@ export const ChatProvider = ({children}: {children: ReactNode}) => {
     };
 
 
-
+    export const useChat = () => useContext(ChatContext);  // utilizar Hook
 

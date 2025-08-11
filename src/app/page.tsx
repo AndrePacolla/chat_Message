@@ -12,7 +12,6 @@ const App = () => {
         <ChatProvider>
            <h1 className="text-3xl my-8 text-center">Chat Bate - Papo</h1>
 
-
            <Chat/>
         </ChatProvider>
       </UserProvider>
